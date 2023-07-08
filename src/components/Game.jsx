@@ -4,6 +4,7 @@ import img from '../assets/pierre-roussel-xbox-web.jpg'
 import { db } from '../config/firebase'
 import { getDocs, collection } from 'firebase/firestore'
 import Dropdown from './Dropdown';
+import Sidebar from './Sidebar'
 
 function Game() {
     const [coordinates , setCoordinates] = useState([]);
@@ -35,12 +36,16 @@ function Game() {
       setVisible(true);
     }
   return (
+
     <div className='game'>
+        <Sidebar data={coordinates}/>
          <img className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'100vh', width:'55vw', border:"1px solid"}}/>
       {
         isVisible && (<Dropdown pos={position} coordinates={coordinates} setVisible={setVisible}/>)
       }
+
     </div>
+ 
   )
 }
 

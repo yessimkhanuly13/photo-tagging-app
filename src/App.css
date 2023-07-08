@@ -5,8 +5,24 @@
 
 
 .game{
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
+ display: grid;
+ grid-template-columns: 1fr 3fr;
+}
+
+.input-username{
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  width: 40rem;
+  height: 25rem;
+  display: flex;
+  justify-content: center;
+  background-color: aquamarine;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(5px); 
+}
+
+.input-username input, button{
+  width: 15rem;
 }
