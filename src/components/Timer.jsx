@@ -29,10 +29,17 @@ function Timer({start}) {
                 clearInterval(timer)
             }
         }
+        else{
+            setTime({
+                hours: 0, 
+                minutes: 0, 
+                seconds:0
+            })
+        }
     },[start])
   return (
     <div>
-        <p>Timer: {time.hours % 3600} h : {time.minutes} min : {time.seconds} sec </p>
+        <p>Timer: {time.hours} h : {time.minutes} min : {time.seconds} sec </p>
     </div>
   )
 }
