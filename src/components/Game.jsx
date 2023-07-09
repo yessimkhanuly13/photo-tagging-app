@@ -1,6 +1,6 @@
 import React from 'react'
 import {useEffect, useState} from "react"
-import img from '../assets/pierre-roussel-xbox-web.jpg'
+import img from '../assets/pokemonimg.jpg'
 import { db } from '../config/firebase'
 import { getDocs, collection } from 'firebase/firestore'
 import Dropdown from './Dropdown';
@@ -28,18 +28,23 @@ function Game() {
   
     const handleClick = (e) =>{
       
+      const imageRect = e.target.getBoundingClientRect();
+  
+
       const newTag = {
-        x: e.clientX,
-        y: e.clientY,
+        x: e.clientX - imageRect.left,
+        y: e.clientY - imageRect.top ,
       }
+      console.log(newTag)
       setPosition(newTag)
       setVisible(true);
     }
   return (
 
     <div className='game'>
-        <Sidebar data={coordinates}/>
-         <img className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'100vh', width:'55vw', border:"1px solid"}}/>
+       
+          <img className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'auto', width:'100%'}}/>
+      
       {
         isVisible && (<Dropdown pos={position} coordinates={coordinates} setVisible={setVisible}/>)
       }
