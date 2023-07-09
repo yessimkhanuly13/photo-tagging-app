@@ -22,6 +22,7 @@ function Game({coordinates}) {
       console.log(newTag)
       setPosition(newTag)
       setVisible(true);
+  
     }
 
   return (
