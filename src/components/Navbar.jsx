@@ -2,8 +2,8 @@ import React from 'react'
 import Timer from './Timer'
 // import Characters from './Characters';
 
-function Navbar({start, setStart, viewCharacters}) {
-  const handleView = () =>{
+function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
+  const handleView = (viewCharacters) =>{
     viewCharacters((prevViewCharacter)=>{
       if(prevViewCharacter){
         return false;
@@ -12,6 +12,8 @@ function Navbar({start, setStart, viewCharacters}) {
       }
     })
   }
+
+    
 
   return (
     <div style={{
@@ -23,8 +25,8 @@ function Navbar({start, setStart, viewCharacters}) {
       height:'12%'
     }}>
         <h1>Photo-tagging-app</h1>
-        <button onClick={()=>console.log('ddd')}>Scoreboard</button>
-        <button onClick={handleView}>Characters</button>
+        <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>
+        <button onClick={()=>handleView(viewCharacters)}>Characters</button>
         {/* {characters && (<Characters />)} */}
         {start && (<Timer start={start}/>)}
         {start && (<button onClick={()=>setStart(false)} >Restart</button>)}
