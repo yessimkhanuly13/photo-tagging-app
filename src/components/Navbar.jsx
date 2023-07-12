@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React from 'react'
 import Timer from './Timer'
 // import Characters from './Characters';
 
@@ -25,10 +25,16 @@ function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
       alignItems:'center',
       height:'60px'
     }}>
+      <div>
         <h1 onClick={()=>setStart(false)} style={{cursor:"pointer"}}>Photo-tagging-app</h1>
-        {!start && <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>}
+       
+      </div>
         {start && (<Timer start={start}/>)}
-        {start && <button onClick={()=>handleView(viewCharacters)}>Characters</button>}
+        <div>
+          <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>
+          <button onClick={()=>handleView(viewCharacters)}>Characters</button>
+        </div>
+        
     </div>
   )
 }

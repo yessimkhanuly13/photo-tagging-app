@@ -1,5 +1,7 @@
 import React, { useContext } from 'react'
 import { Sec } from '../App'
+import { FaGithub } from "react-icons/fa";
+
 
 
 function Pregame({start, data}) {
@@ -24,8 +26,9 @@ function Pregame({start, data}) {
         ))
       }
       <button onClick={()=>handleStart()}>Start</button>
-  
-   
+      <a style={{textDecoration:'none', position:'absolute', top:'95%', left:'47%'}} href="https://github.com/yessimkhanuly13" target="_blank">
+            yessimkhanuly13 <FaGithub /> 
+          </a>
     </div>
   )
 }
