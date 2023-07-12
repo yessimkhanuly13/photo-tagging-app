@@ -1,8 +1,12 @@
 import React from 'react'
 import DropdownItem from './DropdownItem'
 
-function Dropdown({pos, coordinates, setVisible, compareCoords}) {
+function Dropdown({pos, coordinates, setVisible, compareCoords, setData}) {
 
+    const filteredData = (data) =>{
+        const filteredData = coordinates.filter((el)=>el.id !== data.id );
+        setData(filteredData);
+    }
 
     return (
         <div  style={{position:'absolute', left : pos.x - 30, top : pos.y + 30}}>
@@ -10,7 +14,7 @@ function Dropdown({pos, coordinates, setVisible, compareCoords}) {
 
             </div>
                 {coordinates.map((el)=>(
-                    <DropdownItem data={el} setVisible={setVisible} position={compareCoords}/>
+                    <DropdownItem data={el} setVisible={setVisible} position={compareCoords} setData={setData} filteredData={filteredData}/>
                 ))}
         </div>
   )

@@ -1,45 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect,  useContext } from 'react'
+import { Sec } from '../App';
 
 function Timer({start}) {
-    const [time, setTime] = useState({ 
-        hours: 0, 
-        minutes: 0, 
-        seconds:0 
-    });
+  const {setSeconds, seconds} = useContext(Sec)
 
     useEffect(()=>{
-        if(start){
             const timer = setInterval(()=>{
-                setTime((prevTime) => {
-                    const sec = prevTime.seconds + 1
-                    const min = prevTime.minutes  + Math.floor(sec / 60)
-                    const hours = prevTime.hours + Math.floor(sec / 3600)
-
-                    return {
-                        hours:hours ,
-                        minutes: min % 60,
-                        seconds: sec % 60
-                    }
-                })
-
+                setSeconds((prevSeconds)=>prevSeconds + 1);
             }, 1000)
             
 
             return ()=>{
                 clearInterval(timer)
             }
-        }
-        else{
-            setTime({
-                hours: 0, 
-                minutes: 0, 
-                seconds:0
-            })
-        }
     },[start])
   return (
     <div>
-        <p>Timer: {time.hours} h : {time.minutes} min : {time.seconds} sec </p>
+        <p>{ seconds/3600 >= 1 ? Math.floor(seconds/3600) + " h: " : ""} {seconds/60 >= 1 ?  Math.floor(seconds/60) + " min : " : ""} {seconds % 60 + " sec"} </p>
     </div>
   )
 }

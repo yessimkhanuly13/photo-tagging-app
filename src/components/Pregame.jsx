@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Sec } from '../App'
 
 
 function Pregame({start, data}) {
+  const {setSeconds} = useContext(Sec)
+
+  const handleStart = () =>{
+    start(true);
+    setSeconds(0);
+  }
   return (
     <div style={{width:'100%', height:'100%', textAlign:"center"}}>
 
@@ -14,7 +21,7 @@ function Pregame({start, data}) {
           </div>
         ))
       }
-      <button onClick={()=>start(true)}>Start</button>
+      <button onClick={()=>handleStart()}>Start</button>
   
    
     </div>

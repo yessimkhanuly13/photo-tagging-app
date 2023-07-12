@@ -1,9 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import Timer from './Timer'
 // import Characters from './Characters';
 
 function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
-  
+
   const handleView = (viewCharacters) =>{
     viewCharacters((prevViewCharacter)=>{
       if(prevViewCharacter){

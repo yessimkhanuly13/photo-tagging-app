@@ -3,7 +3,7 @@ import { useState, useRef } from "react"
 import img from '../assets/pokemonimg.jpg'
 import Dropdown from './Dropdown';
 
-function Game({coordinates}) {
+function Game({coordinates, setData}) {
     const [isVisible, setVisible] = useState(false);
     const [position, setPosition] = useState({ x : 0, y : 0 })
     const [compareCoords, setCompareCoords] = useState({xPos:0, yPos:0})
@@ -49,7 +49,7 @@ function Game({coordinates}) {
           <img ref={imgRef} className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'auto', width:'100%'}}/>
       
       {
-        isVisible && (<Dropdown pos={position} coordinates={coordinates} setVisible={setVisible} compareCoords={compareCoords}/>)
+        isVisible && (<Dropdown pos={position} coordinates={coordinates} setVisible={setVisible} compareCoords={compareCoords} setData={setData}/>)
       }
 
     </div>

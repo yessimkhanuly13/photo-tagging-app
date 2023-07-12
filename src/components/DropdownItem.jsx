@@ -1,9 +1,10 @@
 import React from 'react'
 
-function DropdownItem({data, setVisible, position}) {
+function DropdownItem({data, setVisible, position, filteredData}) {
   const checkCharacter = () =>{
     if(data.x <= position.xPos + 3 && data.x >= position.xPos - 3 && data.y <= position.yPos + 3 && data.y >= position.yPos - 3 ){
-      console.log("Works");
+        // const filteredData = data.filter((el) => el.id !== data.id);  
+        filteredData(data)
     }
 
     console.log("should be x:"+data.x + " y:" + data.y + " It is x:" + position.xPos + " y:" + position.yPos)
