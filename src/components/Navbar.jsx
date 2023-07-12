@@ -22,7 +22,7 @@ function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
       display:'flex',
       justifyContent:'space-around',
       alignItems:'center',
-      height:'12%'
+      height:'60px'
     }}>
         <h1>Photo-tagging-app</h1>
         <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>
