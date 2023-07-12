@@ -3,6 +3,7 @@ import Timer from './Timer'
 // import Characters from './Characters';
 
 function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
+  
   const handleView = (viewCharacters) =>{
     viewCharacters((prevViewCharacter)=>{
       if(prevViewCharacter){
@@ -24,12 +25,10 @@ function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
       alignItems:'center',
       height:'60px'
     }}>
-        <h1>Photo-tagging-app</h1>
-        <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>
-        <button onClick={()=>handleView(viewCharacters)}>Characters</button>
-        {/* {characters && (<Characters />)} */}
+        <h1 onClick={()=>setStart(false)} style={{cursor:"pointer"}}>Photo-tagging-app</h1>
+        {!start && <button onClick={()=>handleView(viewScoreBoard)}>Scoreboard</button>}
         {start && (<Timer start={start}/>)}
-        {start && (<button onClick={()=>setStart(false)} >Restart</button>)}
+        {start && <button onClick={()=>handleView(viewCharacters)}>Characters</button>}
     </div>
   )
 }
