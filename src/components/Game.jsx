@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState, useRef } from "react"
 import img from '../assets/pokemonimg.jpg'
 import Dropdown from './Dropdown';
+import { Sec } from '../App';
+import InputUsername from './InputUsername';
 
 function Game({coordinates, setData, start}) {
     const [isVisible, setVisible] = useState(false);
@@ -9,7 +11,8 @@ function Game({coordinates, setData, start}) {
     const [compareCoords, setCompareCoords] = useState({xPos:0, yPos:0})
     
     const imgRef = useRef();
-   
+  
+    const {seconds, gameOver, setGameOver} = useContext(Sec)
   
     const handleClick = (e) =>{
       
@@ -42,19 +45,31 @@ function Game({coordinates, setData, start}) {
       setCompareCoords(newTagPercent);
     }
 
+    const filteredData = (data) =>{
+      const filteredData = coordinates.filter((el)=>el.id !== data.id );
+      setData(filteredData);
+
+      if(coordinates.length === 1){
+        // start(false)
+        setGameOver({name:"", seconds:seconds, isOver:true})
+      }
+
+      console.log(gameOver)
+    }
+
   return (
 
     <div className='game'>
        
-          <img ref={imgRef} className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'auto', width:'100%'}}/>
-      
+        {!gameOver.isOver && (<img ref={imgRef} className='image-tag' src={img} alt='imgss' onClick={handleClick} style={{height:'auto', width:'100%'}}/>)}
+        {gameOver.isOver && (<InputUsername start={start}/>)}
       {
         isVisible && (<Dropdown 
           pos={position} 
           coordinates={coordinates} 
           setVisible={setVisible} 
           compareCoords={compareCoords} 
-          setData={setData}
+          filteredData={filteredData}
           start={start}
           />)
       }

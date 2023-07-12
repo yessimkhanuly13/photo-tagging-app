@@ -3,11 +3,13 @@ import { Sec } from '../App'
 
 
 function Pregame({start, data}) {
-  const {setSeconds} = useContext(Sec)
+  const {setSeconds, setGameOver, gameOver} = useContext(Sec)
 
   const handleStart = () =>{
     start(true);
     setSeconds(0);
+    setGameOver({name:'', seconds:0, isOver:false})
+    console.log(gameOver)
   }
   return (
     <div style={{width:'100%', height:'100%', textAlign:"center"}}>

@@ -18,10 +18,15 @@ function App() {
   const [viewScoreBoard, setViewScoreboard] = useState(false);
   const [users, setUsers] = useState([]);
   const [seconds, setSeconds] = useState(0);
+  const [gameOver, setGameOver] = useState({name:"", seconds:0, isOver:false})
 
-  const addToScoreboard = (data) =>{
-     addDoc(scoreBoardList, data)
-     console.log(seconds)
+  const addToScoreboard = async(data) =>{
+    try{
+     const docRef = addDoc(scoreBoardList, data)
+     console.log('Success, added with id: ' + docRef.id)
+    }catch(error){
+      console.log("Error: " + error)
+    }
   };
 
   useEffect(()=>{
@@ -44,11 +49,13 @@ function App() {
             })))
           }
           getUsers();
-  },[])
+
+        console.log(gameOver)
+  },[start])
 
   return (
     <div className="App">
-      <Sec.Provider value={{setSeconds, seconds}}>
+      <Sec.Provider value={{setSeconds, seconds, gameOver, setGameOver, addToScoreboard}}>
           <Navbar start={start} setStart={setStart} viewCharacters={setViewCharacters} addToScoreboard={addToScoreboard} viewScoreBoard={setViewScoreboard}/>
           {viewScoreBoard && <Scoreboard users={users}/>}
           {!start && (<Pregame start={setStart} data={coordinates}/>)}

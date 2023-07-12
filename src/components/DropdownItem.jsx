@@ -1,13 +1,15 @@
 import React from 'react'
 
+
 function DropdownItem({data, setVisible, position, filteredData, coordinates, start}) {
+
   const checkCharacter = () =>{
     if(data.x <= position.xPos + 3 && data.x >= position.xPos - 3 && data.y <= position.yPos + 3 && data.y >= position.yPos - 3 ){
         // const filteredData = data.filter((el) => el.id !== data.id);  
+
         filteredData(data)
         
     }
-    console.log("should be x:"+data.x + " y:" + data.y + " It is x:" + position.xPos + " y:" + position.yPos)
   }
   return (
     <div style={{border:'1px solid', padding:"0.25rem", backgroundColor:"gray", color:"white", cursor:'pointer'}} onClick={()=>{setVisible(false)}}>
