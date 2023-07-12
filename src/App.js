@@ -15,7 +15,7 @@ function App() {
   const [coordinates , setCoordinates] = useState([]);
   const [start, setStart] = useState(false);
   const [viewCharacters, setViewCharacters] = useState(false);
-  const [viewScoreBoard, setViewScoreboard] = useState(true);
+  const [viewScoreBoard, setViewScoreboard] = useState(false);
   const [users, setUsers] = useState([]);
   const [seconds, setSeconds] = useState(0);
 
@@ -44,7 +44,6 @@ function App() {
             })))
           }
           getUsers();
-          console.log(users)
   },[])
 
   return (
@@ -53,7 +52,7 @@ function App() {
           <Navbar start={start} setStart={setStart} viewCharacters={setViewCharacters} addToScoreboard={addToScoreboard} viewScoreBoard={setViewScoreboard}/>
           {viewScoreBoard && <Scoreboard users={users}/>}
           {!start && (<Pregame start={setStart} data={coordinates}/>)}
-          {start && (<Game coordinates={coordinates} setData={setCoordinates}/>)}
+          {start && (<Game coordinates={coordinates} setData={setCoordinates} start={setStart}/>)}
           {viewCharacters && (<Characters data={coordinates} viewCharacters={setViewCharacters}/>)}
       </Sec.Provider>
     </div>
