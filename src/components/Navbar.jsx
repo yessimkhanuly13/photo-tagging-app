@@ -18,7 +18,6 @@ function Navbar({start, setStart, viewCharacters, viewScoreBoard}) {
 
   return (
     <div style={{
-      backgroundColor:'white',
       width:'100%',
       display:'flex',
       justifyContent:'space-around',

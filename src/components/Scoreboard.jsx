@@ -13,12 +13,12 @@ function Scoreboard({users}) {
   },[])
 
   return (
-    <div style={{position:'absolute', top:'15%', left:'60%', color:'white', backgroundColor:"black"}}>
-      <table>
-        <thead style={{textAlign:'left'}}>
+    <div style={{position:'absolute', top:'20%', left:'30%', color:'white', backgroundColor:"black"}}>
+      <table style={{textAlign:'center'}}>
+        <thead style={{textAlign:'center'}}>
           <tr>
-            <td style={{width:'10rem', fontWeight:'bold'}}>Name</td>
-            <td style={{width:'10rem', fontWeight:'bold'}}>Time</td>
+            <td style={{width:'20rem', fontWeight:'bold', borderBottom: '1px solid #ddd'}}>Name</td>
+            <td style={{width:'20rem', fontWeight:'bold', borderBottom: '1px solid #ddd'}}>Time</td>
           </tr>
         </thead>
             {

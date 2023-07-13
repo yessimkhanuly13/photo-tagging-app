@@ -4,7 +4,7 @@ function Characters({data}) {
   
 
   return (
-    <div style={{position:"absolute", top:'15%', left:'85%'}}>
+    <div style={{position:"absolute", top:'15%', left:'80%'}}>
       {data.map((element)=>(
           <div style={{display:'flex', backgroundColor:"black", textAlign:"center", color:'white'}}>
             <div>

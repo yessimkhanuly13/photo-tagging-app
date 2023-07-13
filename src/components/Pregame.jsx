@@ -14,19 +14,22 @@ function Pregame({start, data}) {
     console.log(gameOver)
   }
   return (
-    <div style={{width:'100%', height:'100%', textAlign:"center"}}>
+    <div style={{width:'100%', height:'100%', textAlign:"center", display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
 
-      <p>You gotta find this characters:</p>
-      {
-        data.map((element)=>(
-          <div>
-            <p>{element.character}</p>
-            <img src={element.img} alt={element.character} style={{width:'10rem', height:'10rem'}}/>
-          </div>
-        ))
-      }
-      <button onClick={()=>handleStart()}>Start</button>
-      <a style={{textDecoration:'none', position:'absolute', top:'95%', left:'47%'}} href="https://github.com/yessimkhanuly13" target="_blank">
+      <h1>Characters:</h1>
+      <div style={{display:'flex', justifyContent:'center', alignItems:'center', marginTop:'2rem'}}>
+        {
+          data.map((element)=>(
+            <div>
+              <p>{element.character}</p>
+              <img src={element.img} alt={element.character} style={{width:'20rem', height:'20rem'}}/>
+            </div>
+          ))
+        }
+      </div>
+
+      <button style={{marginTop:'3rem'}} onClick={()=>handleStart()}>Start</button>
+      <a style={{textDecoration:'none', position:'absolute', top:'95%', left:'47%'}} href="https://github.com/yessimkhanuly13">
             yessimkhanuly13 <FaGithub /> 
           </a>
     </div>

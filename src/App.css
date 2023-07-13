@@ -12,6 +12,8 @@
 
 .game{
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 
@@ -20,20 +22,14 @@
 }
 
 
-.input-username{
-  position: absolute;
-  left: 35%;
-  top: 20%;
-  width: 40rem;
-  height: 25rem;
-  display: flex;
-  justify-content: center;
-  background-color: aquamarine;
-  flex-direction: column;
-  align-items: center;
-
-}
-
 .input-username input, button{
   width: 15rem;
+}
+
+
+button{
+  padding: 0.3rem;
+  border: none;
+  cursor: pointer;
+  margin: 0.3rem;
 }
